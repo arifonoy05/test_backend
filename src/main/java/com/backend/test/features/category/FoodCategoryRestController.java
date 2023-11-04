@@ -16,8 +16,13 @@ public class FoodCategoryRestController {
 
     @GetMapping("/all")
     public ResponseEntity<?> findAll(){
-        List<FoodCategoryEntity> foodCategoryEntities = service.findAll();
-        return new ResponseEntity<>(foodCategoryEntities, HttpStatus.OK);
+        try{
+            List<FoodCategoryEntity> foodCategoryEntities = service.findAll();
+            return new ResponseEntity<>(foodCategoryEntities, HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping("/save")

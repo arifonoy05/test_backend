@@ -22,7 +22,7 @@ public class RestaurantRestController {
             return new ResponseEntity<>(restaurantEntityList, HttpStatus.OK);
         }
         catch (Exception e){
-            return null;
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
