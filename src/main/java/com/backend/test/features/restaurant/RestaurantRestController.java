@@ -15,7 +15,7 @@ public class RestaurantRestController {
     private final RestaurantService service;
 
     @GetMapping("/all")
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<?> getRestaurantList(){
         try{
             List<RestaurantEntity> restaurantEntityList = service.findAll();
             System.err.println(restaurantEntityList);

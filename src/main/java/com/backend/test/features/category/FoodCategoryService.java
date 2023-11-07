@@ -29,7 +29,7 @@ public class FoodCategoryService {
 
             RestaurantEntity restaurant = restaurantService.findById(foodCategoryDTO.getRestaurant_id());
             if(restaurant==null){
-                throw new RuntimeException("Restaurant of id::"+foodCategoryDTO.getRestaurant_id()+" is found null!");
+                throw new Exception("Restaurant of id::"+foodCategoryDTO.getRestaurant_id()+" is found null!");
             }
             foodCategory.setRestaurant(restaurant);
 
@@ -40,6 +40,7 @@ public class FoodCategoryService {
             return repository.save(foodCategory);
         }
         catch (Exception e){
+            e.getMessage();
             return null;
         }
     }
